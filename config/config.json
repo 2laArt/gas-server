@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "freedb_2laArt",
+    "password": "p8w&7dUdzbE8hk2",
+    "database": "freedb_gaz_shop",
+    "host": "sql.freedb.tech",
+    "dialect": "mysql",
+    "port": 3306
+  },
+  "test": {
+    "username": "freedb_2laArt",
+    "password": "p8w&7dUdzbE8hk2",
+    "database": "freedb_gaz_shop",
+    "host": "sql.freedb.tech",
+    "dialect": "mysql",
+    "port": 3306
+  },
+  "production": {
+    "username": "freedb_2laArt",
+    "password": "p8w&7dUdzbE8hk2",
+    "database": "freedb_gaz_shop",
+    "host": "sql.freedb.tech",
+    "dialect": "mysql",
+    "port": 3306
+  }
+}
