@@ -19,8 +19,8 @@ async function bootstrap() {
 
   app.enableCors({
     credentials: true,
-    // origin: ['http://localhost:3000/:path*', 'http://192.168.1.35:3000'],
-    origin: true,
+    origin: ['http://localhost:3000'],
+    // origin: true,
   });
 
   const config = new DocumentBuilder()
