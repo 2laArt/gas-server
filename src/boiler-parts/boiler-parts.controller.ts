@@ -1,18 +1,24 @@
-import { Body, Controller, Post } from '@nestjs/common';
-import { Get } from '@nestjs/common';
-import { Param, Query, UseGuards } from '@nestjs/common';
-import { BoilerPartsService } from './boiler-parts.service';
-import { AuthenticatedGuard } from '../auth/authenticated.guard';
-import { ApiOkResponse, ApiBody } from '@nestjs/swagger';
 import {
-  PaginateAndFilterResponse,
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
+import { ApiBody, ApiOkResponse } from '@nestjs/swagger';
+import { AuthenticatedGuard } from '../auth/authenticated.guard';
+import { BoilerPartsService } from './boiler-parts.service';
+import {
   FindOneResponse,
   GetBestsellersResponse,
-  GetNewResponse,
-  SearchResponse,
-  SearchRequest,
-  GetByNameResponse,
   GetByNameRequest,
+  GetByNameResponse,
+  GetNewResponse,
+  PaginateAndFilterResponse,
+  SearchRequest,
+  SearchResponse,
 } from './types';
 
 @Controller('boiler-parts')
@@ -34,14 +40,14 @@ export class BoilerPartsController {
   }
 
   @ApiOkResponse({ type: GetBestsellersResponse })
-  @UseGuards(AuthenticatedGuard)
+  // @UseGuards(AuthenticatedGuard)
   @Get('bestsellers')
   getBestseller() {
     return this.boilerPartsService.bestsellers();
   }
 
   @ApiOkResponse({ type: GetNewResponse })
-  @UseGuards(AuthenticatedGuard)
+  // @UseGuards(AuthenticatedGuard)
   @Get('new')
   getNew() {
     return this.boilerPartsService.new();

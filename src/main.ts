@@ -10,8 +10,8 @@ async function bootstrap() {
   app.use(
     session({
       secret: 'keyword',
-      resave: false,
-      saveUninitialized: true,
+      resave: true,
+      saveUninitialized: false,
     }),
   );
   app.use(passport.initialize());
@@ -19,8 +19,8 @@ async function bootstrap() {
 
   app.enableCors({
     credentials: true,
-    origin: ['http://localhost:3000'],
-    // origin: true,
+    // origin: ['http://localhost:3000'],
+    origin: true,
   });
 
   const config = new DocumentBuilder()
