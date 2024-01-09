@@ -19,8 +19,8 @@ async function bootstrap() {
 
   app.enableCors({
     credentials: true,
-    // origin: ['http://localhost:3000'],
-    origin: true,
+    origin: ['http://localhost:3000', 'https://gas-boiler.onrender.com'],
+    // origin: true,
   });
 
   const config = new DocumentBuilder()

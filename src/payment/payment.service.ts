@@ -26,7 +26,7 @@ export class PaymentService {
           capture: true,
           confirmation: {
             type: 'redirect',
-            return_url: 'http://localhost:3000/dashboard',
+            return_url: 'http://localhost:3000',
           },
           description: makePaymentDto.description,
         },
