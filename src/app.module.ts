@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { BoilerPartsModule } from './boiler-parts/boiler-parts.module';
 import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 import { PaymentModule } from './payment/payment.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { PaymentModule } from './payment/payment.module';
     BoilerPartsModule,
     ShoppingCartModule,
     PaymentModule,
+    HealthModule,
   ],
 })
 export class AppModule {}

@@ -10,7 +10,7 @@ async function bootstrap() {
   app.use(
     session({
       secret: 'keyword',
-      resave: true,
+      resave: false,
       saveUninitialized: false,
     }),
   );
@@ -19,12 +19,15 @@ async function bootstrap() {
 
   app.enableCors({
     credentials: true,
-    origin: ['http://localhost:3000', 'https://gas-boiler.onrender.com'],
-    // origin: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    origin: true,
+    exposedHeaders: ['Content-Type'],
+    allowedHeaders:
+      'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Observe',
   });
-
+  app.setGlobalPrefix('api');
   const config = new DocumentBuilder()
-    .setTitle('Аква термикс')
+    .setTitle('GAS')
     .setDescription('api documentation')
     .setVersion('1.0')
     .addTag('api')
@@ -35,3 +38,5 @@ async function bootstrap() {
   await app.listen(process.env.PORT || 4200);
 }
 bootstrap();
+
+// process.env.IP
