@@ -1,14 +1,5 @@
 {
   "version": 2,
-  "env": {
-    "SQL_LOGGING": "true",
-    "SQL_DIALECT": "mysql",
-    "DATABASE_HOST": "sql.freedb.tech",
-    "DATABASE_PORT": "3306",
-    "DATABASE_USER": "freedb_2laArt",
-    "DATABASE_PASSWORD": "p8w&7dUdzbE8hk2",
-    "DATABASE_NAME": "freedb_gaz_shop"
-  },
   "builds": [
     {
       "src": "src/main.ts",
