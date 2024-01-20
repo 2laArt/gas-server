@@ -1,0 +1,33 @@
+
+FROM node:20 as dependencies
+WORKDIR /gas/server
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
+
+FROM node:20 as builder
+WORKDIR /gas/server
+COPY . .
+COPY --from=dependencies /gas/server/node_modules ./node_modules
+RUN yarn build
+
+FROM node:20 as production
+WORKDIR /gas/server
+
+ENV SQL_DIALECT ${SQL_DIALECT}
+ENV SQL_LOGGING ${SQL_LOGGING}
+ENV DATABASE_HOST ${DATABASE_HOST}
+ENV DATABASE_PORT ${DATABASE_PORT}
+ENV DATABASE_USER ${DATABASE_USER}
+ENV DATABASE_PASSWORD ${DATABASE_PASSWORD}
+ENV DATABASE_NAME ${DATABASE_NAME}
+ENV PORT ${PORT}
+
+
+COPY . .
+COPY --from=builder  /gas/server/package.json ./package.json
+COPY --from=builder  /gas/server/node_modules ./node_modules
+COPY --from=builder  /gas/server/dist ./dist
+
+EXPOSE $PORT
+
+CMD ["yarn", "start:prod"]

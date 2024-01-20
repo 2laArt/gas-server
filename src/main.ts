@@ -19,11 +19,7 @@ async function bootstrap() {
 
   app.enableCors({
     credentials: true,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     origin: true,
-    exposedHeaders: ['Content-Type'],
-    allowedHeaders:
-      'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Observe',
   });
   app.setGlobalPrefix('api');
   const config = new DocumentBuilder()
